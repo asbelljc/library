@@ -20,4 +20,3 @@ function updateDisplay() {
     makeCard(book);
   }
 }
-

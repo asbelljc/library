@@ -1,0 +1,163 @@
+@font-face {
+  font-family: Regular;
+  src: url(Fonts/MPLUSRounded1c-Regular.ttf);
+}
+
+@font-face {
+  font-family: Bold;
+  src: url(Fonts/MPLUSRounded1c-Bold.ttf);
+}
+
+@font-face {
+  font-family: Black;
+  src: url(Fonts/MPLUSRounded1c-Black.ttf);
+}
+
+html {
+  margin: 0;
+  font-family: Regular, Arial, Helvetica, sans-serif;
+  background-color: rgb(175, 175, 175);
+}
+
+body {
+  margin: auto;
+  width: 90vw;
+}
+
+header {
+  margin: 0;
+}
+
+h1 {
+  font-family: Black;
+  text-align: center;
+  margin-top: 0.3em;
+  margin-bottom: 0.1em;
+  color: rgb(175, 175, 175);
+  text-shadow:
+    -3px -3px 11px rgba(255, 255, 255, 0.6),
+     3px  3px 11px rgba(0, 0, 0, 0.4);
+}
+
+h3 {
+  font-family: Bold;
+}
+
+#nav {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  height: 2.5em;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#sort {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin-right: 30px;
+  background-color: rgb(175, 175, 175);
+  box-shadow:
+    -0.25em -0.25em 1em rgba(255, 255, 255, 0.6),
+     0.25em  0.25em 1em rgba(0, 0, 0, 0.4);
+  border-radius: 1.25em;
+}
+
+#label {
+  display: inline;
+  font-size: 0.75em;
+  color: white;
+  margin-left: 2em;
+  margin-right: 0.5em;
+}
+
+button {
+  background-color: inherit;
+  color: white;
+  font-family: Regular;
+  border: none;
+  line-height: 0;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(165, 165, 165);
+  transition: background-color 0.3s;
+}
+
+#title {
+  width: 70px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#author {
+  width: 70px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#ascending {
+  height: 100%;
+  width: 20px;
+  line-height: 0;
+}
+
+#descending {
+  height: 100%;
+  width: 20px;
+}
+
+#add {
+  width: 40px;
+  min-width: 40px;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow:
+    -0.25em -0.25em 1em rgba(255, 255, 255, 0.6),
+     0.25em  0.25em 1em rgba(0, 0, 0, 0.4);
+  font-size: 1em;
+}
+
+@media (max-width: 399px) {
+  h1 {
+    font-size: 17vw;
+  }
+}
+/* Larger than mobile */
+@media (min-width: 400px) {
+  h1 {
+    font-size: 69px;
+  }
+}
+/* Larger than phablet */
+@media (min-width: 550px) {
+  h1 {
+    font-size: 69px;
+  }
+}
+/* Larger than tablet */
+@media (min-width: 750px) {
+  h1 {
+    font-size: 94px;
+  }
+}
+/* Larger than desktop */
+@media (min-width: 1000px) {
+  h1 {
+    font-size: 125px;
+  }
+
+}
+/* Larger than HD desktop */
+@media (min-width: 1250px) {
+  h1 {
+    font-size: 125px;
+  }
+}
