@@ -13,16 +13,22 @@
     <div id="nav">
       <div id="sort">
         <h3 id="label">SORT BY</h3>
-        <button id="title" class="toggle-btn working">TITLE</button>
-        <button id="author" class="toggle-btn">AUTHOR</button>
-        <button id="ascending" class="toggle-btn working">
-          <img id="up-arrow" src="Images/upArrow1.svg">
+        <button id="title-author">
+          <span class="slider"></span>
+          <span id="title">TITLE</span>
+          <span id="author">AUTHOR</span>
         </button>
-        <button id="descending" class="toggle-btn">
-          <img id="down-arrow" src="Images/downArrow1.svg">
+        <button id="asc-desc">
+          <span class="slider"></span>
+          <span id="ascending">
+            <img id="up-arrow" src="Images/upArrow1.svg">
+          </span>
+          <span id="descending">
+            <img id="down-arrow" src="Images/downArrow1.svg">
+          </span>
         </button>
       </div>
-      <button id="add">+</button>
+      <div id="add"><button>+</button></div>
     </div>
     <div id="grid"></div>
   </body>

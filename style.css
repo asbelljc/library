@@ -17,7 +17,7 @@ html {
   height: 100%;
   margin: 0;
   font-family: Regular, Arial, Helvetica, sans-serif;
-  background-color: rgb(175, 175, 175);
+  background-color: rgb(190, 190, 190);
 }
 
 body {
@@ -34,10 +34,10 @@ h1 {
   text-align: center;
   margin-top: 0.3em;
   margin-bottom: 0.1em;
-  color: rgb(175, 175, 175);
+  color: rgb(190, 190, 190);
   text-shadow:
     -3px -3px 11px rgba(255, 255, 255, 0.6),
-     3px  3px 11px rgba(0, 0, 0, 0.4);
+     3px  3px 11px rgba(0, 0, 0, 0.3);
 }
 
 h3 {
@@ -54,6 +54,12 @@ h3 {
   align-items: center;
 }
 
+#nav button, #nav span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 #sort {
   display: flex;
   justify-content: flex-start;
@@ -61,15 +67,15 @@ h3 {
   height: 100%;
   width: 100%;
   margin-right: 30px;
-  background-color: rgb(175, 175, 175);
+  background-color: rgb(190, 190, 190);
   box-shadow:
     -0.25em -0.25em 1em rgba(255, 255, 255, 0.6),
-     0.25em  0.25em 1em rgba(0, 0, 0, 0.4);
+     0.25em  0.25em 1em rgba(0, 0, 0, 0.3);
   border-radius: 1.25em;
 }
 
 #sort > * {
-  border-radius: 14px;
+  border-radius: 13px;
 }
 
 #label {
@@ -81,75 +87,119 @@ h3 {
 }
 
 button {
-  background-color: inherit;
+  position: relative;
+  background-color: rgb(190, 190, 190);
   color: white;
   font-family: Regular;
   border: none;
   line-height: 0;
+  padding: 0;
+  will-change: background-color;
+  transition: background-color 0.3s;
 }
 
 button:hover {
   cursor: pointer;
-  background-color: rgb(160, 160, 160);
-  transition: background-color 0.3s;
+  background-color: rgb(165, 165, 165);
 }
 
 button:active {
-  background-color: rgb(145, 145, 145);
+  background-color: rgb(140, 140, 140);
+}
+
+#title-author, #asc-desc {
+  margin: 0 4px;
+}
+
+#title-author .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 26px;
+  background-color: rgb(75, 150, 220);
+  border-radius: 13px;
+  will-change: transform;
+  transition: transform 0.3s;
+}
+
+#title-author .slider.toggled {
+  transform: translateX(70px);
 }
 
 #title {
   width: 70px;
-  height: 28px;
+  height: 26px;
   padding: 0;
-  margin: 0 2px;
+  z-index: 1;
 }
 
 #author {
   width: 70px;
-  height: 28px;
+  height: 26px;
   padding: 0;
-  margin: 0 2px;
+  z-index: 1;
+}
+
+#asc-desc .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 26px;
+  height: 26px;
+  background-color: rgb(75, 150, 220);
+  border-radius: 13px;
+  will-change: transform;
+  transition: transform 0.3s;
+}
+
+#asc-desc .slider.toggled {
+  transform: translateX(26px);
 }
 
 #ascending {
-  height: 28px;
-  width: 28px;
+  height: 26px;
+  width: 26px;
   line-height: 0;
-  margin: 0 2px;
   padding: 0;
 }
 
 #descending {
-  height: 28px;
-  width: 28px;
+  height: 26px;
+  width: 26px;
   line-height: 0;
-  margin: 0 2px;
   padding: 0;
 }
 
 #up-arrow {
   width: 8px;
+  z-index: 1;
 }
 
 #down-arrow {
   width: 8px;
+  z-index: 1;
 }
 
 #add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 40px;
   min-width: 40px;
   height: 100%;
   border-radius: 50%;
   box-shadow:
     -0.25em -0.25em 1em rgba(255, 255, 255, 0.6),
-     0.25em  0.25em 1em rgba(0, 0, 0, 0.4);
-  font-size: 1em;
-  font-family: Black;
+     0.25em  0.25em 1em rgba(0, 0, 0, 0.3);
 }
 
-.working {
-  background-color: rgb(157, 203, 219);
+#add > * {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 1em;
+  font-family: Black;
 }
 
 @media (max-width: 399px) {

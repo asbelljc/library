@@ -20,3 +20,15 @@ function updateDisplay() {
     makeCard(book);
   }
 }
+
+// For testing! Note "firstElementChild" rather than "firstChild"!!!!
+const toggleSwitches = [
+  document.getElementById("title-author"),
+  document.getElementById("asc-desc")
+];
+
+toggleSwitches.forEach(item => {
+  item.addEventListener("click", () => {
+    item.firstElementChild.classList.toggle("toggled");
+  });
+});
