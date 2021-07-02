@@ -21,7 +21,7 @@ function updateDisplay() {
   }
 }
 
-// For testing! Note "firstElementChild" rather than "firstChild"!!!!
+// For testing! Note "firstElementChild" rather than "firstChild"!!!!!
 const toggleSwitches = [
   document.getElementById("title-author"),
   document.getElementById("asc-desc")
