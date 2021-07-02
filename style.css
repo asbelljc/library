@@ -14,6 +14,7 @@
 }
 
 html {
+  height: 100%;
   margin: 0;
   font-family: Regular, Arial, Helvetica, sans-serif;
   background-color: rgb(175, 175, 175);
@@ -67,6 +68,10 @@ h3 {
   border-radius: 1.25em;
 }
 
+#sort > * {
+  border-radius: 14px;
+}
+
 #label {
   display: inline;
   font-size: 0.75em;
@@ -85,33 +90,50 @@ button {
 
 button:hover {
   cursor: pointer;
-  background-color: rgb(165, 165, 165);
+  background-color: rgb(160, 160, 160);
   transition: background-color 0.3s;
+}
+
+button:active {
+  background-color: rgb(145, 145, 145);
 }
 
 #title {
   width: 70px;
-  height: 100%;
-  margin: 0;
+  height: 28px;
   padding: 0;
+  margin: 0 2px;
 }
 
 #author {
   width: 70px;
-  height: 100%;
-  margin: 0;
+  height: 28px;
   padding: 0;
+  margin: 0 2px;
 }
 
 #ascending {
-  height: 100%;
-  width: 20px;
+  height: 28px;
+  width: 28px;
   line-height: 0;
+  margin: 0 2px;
+  padding: 0;
 }
 
 #descending {
-  height: 100%;
-  width: 20px;
+  height: 28px;
+  width: 28px;
+  line-height: 0;
+  margin: 0 2px;
+  padding: 0;
+}
+
+#up-arrow {
+  width: 8px;
+}
+
+#down-arrow {
+  width: 8px;
 }
 
 #add {
@@ -123,6 +145,11 @@ button:hover {
     -0.25em -0.25em 1em rgba(255, 255, 255, 0.6),
      0.25em  0.25em 1em rgba(0, 0, 0, 0.4);
   font-size: 1em;
+  font-family: Black;
+}
+
+.working {
+  background-color: rgb(157, 203, 219);
 }
 
 @media (max-width: 399px) {
