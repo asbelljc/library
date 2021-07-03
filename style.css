@@ -107,10 +107,6 @@ button {
   transition: background-color 0.3s;
 }
 
-button:active {
-  background-color: rgb(140, 140, 140);
-}
-
 #title-author, #asc-desc {
   margin: 0 4px;
   box-shadow: 
@@ -185,11 +181,13 @@ button:active {
 #up-arrow {
   width: 8px;
   z-index: 1;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
 }
 
 #down-arrow {
   width: 8px;
   z-index: 1;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
 }
 
 #add {
@@ -230,6 +228,9 @@ button:active {
   }
   #add-btn:hover {
     background-color: rgb(165, 165, 165);
+  }
+  button:active {
+    background-color: rgb(140, 140, 140);
   }
 }
 
