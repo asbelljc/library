@@ -82,13 +82,14 @@ h3 {
   display: inline;
   font-size: 0.75em;
   color: white;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
   margin-left: 2em;
   margin-right: 0.5em;
 }
 
 button {
   position: relative;
-  background-color: rgb(190, 190, 190);
+  background-color: rgb(175, 175, 175);
   color: white;
   font-family: Regular;
   border: none;
@@ -100,7 +101,7 @@ button {
 
 button:hover {
   cursor: pointer;
-  background-color: rgb(165, 165, 165);
+  background-color: rgb(155, 155, 155);
 }
 
 button:active {
@@ -109,18 +110,30 @@ button:active {
 
 #title-author, #asc-desc {
   margin: 0 4px;
+  box-shadow: 
+    inset 2px 2px 6px rgba(0, 0, 0, 0.3),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.7);
+  overflow: hidden;
 }
 
-#title-author .slider {
+.slider {
   position: absolute;
+  box-sizing: border-box;
   top: 0;
   left: 0;
-  width: 70px;
-  height: 26px;
-  background-color: rgb(75, 150, 220);
+  background-color: rgb(190, 190, 190);
+  box-shadow:
+    2px 0px 6px rgba(0, 0, 0, 0.15),
+    2px 2px 6px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 13px;
   will-change: transform;
   transition: transform 0.3s;
+}
+
+#title-author .slider {
+  width: 70px;
+  height: 26px;
 }
 
 #title-author .slider.toggled {
@@ -132,6 +145,7 @@ button:active {
   height: 26px;
   padding: 0;
   z-index: 1;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
 
 #author {
@@ -139,18 +153,12 @@ button:active {
   height: 26px;
   padding: 0;
   z-index: 1;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
 
 #asc-desc .slider {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 26px;
   height: 26px;
-  background-color: rgb(75, 150, 220);
-  border-radius: 13px;
-  will-change: transform;
-  transition: transform 0.3s;
 }
 
 #asc-desc .slider.toggled {
@@ -194,12 +202,26 @@ button:active {
      0.25em  0.25em 1em rgba(0, 0, 0, 0.3);
 }
 
-#add > * {
+#add-btn {
   width: 30px;
   height: 30px;
   border-radius: 50%;
   font-size: 1em;
   font-family: Black;
+  background-color: rgb(190, 190, 190);
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.3s, background-color 0.3s;
+}
+
+#add-btn:hover {
+  background-color: rgb(165, 165, 165);
+}
+
+#add-btn.toggled {
+  background-color: rgb(175, 175, 175);
+  box-shadow: 
+    inset 2px 2px 6px rgba(0, 0, 0, 0.3),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.7);
 }
 
 @media (max-width: 399px) {

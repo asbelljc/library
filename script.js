@@ -32,3 +32,9 @@ toggleSwitches.forEach(item => {
     item.firstElementChild.classList.toggle("toggled");
   });
 });
+
+const addButton = document.getElementById("add-btn");
+
+addButton.addEventListener("click", () => {
+  addButton.classList.toggle("toggled");
+});
