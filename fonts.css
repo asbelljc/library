@@ -1,0 +1,14 @@
+@font-face {
+  font-family: Regular;
+  src: url(Fonts/MPLUSRounded1c-Regular.ttf);
+}
+
+@font-face {
+  font-family: Bold;
+  src: url(Fonts/MPLUSRounded1c-Bold.ttf);
+}
+
+@font-face {
+  font-family: Black;
+  src: url(Fonts/MPLUSRounded1c-Black.ttf);
+}
