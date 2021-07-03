@@ -18,12 +18,19 @@ html {
   margin: 0;
   font-family: Regular, Arial, Helvetica, sans-serif;
   background-color: rgb(190, 190, 190);
-  -webkit-tap-highlight-color: transparent;
 }
 
 body {
   margin: auto;
   width: 90vw;
+}
+
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 header {
