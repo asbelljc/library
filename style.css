@@ -107,11 +107,6 @@ button {
   transition: background-color 0.3s;
 }
 
-button:hover {
-  cursor: pointer;
-  background-color: rgb(155, 155, 155);
-}
-
 button:active {
   background-color: rgb(140, 140, 140);
 }
@@ -221,15 +216,21 @@ button:active {
   transition: box-shadow 0.3s, background-color 0.3s;
 }
 
-#add-btn:hover {
-  background-color: rgb(165, 165, 165);
-}
-
 #add-btn.toggled {
   background-color: rgb(175, 175, 175);
   box-shadow: 
     inset 2px 2px 6px rgba(0, 0, 0, 0.3),
     inset -2px -2px 4px rgba(255, 255, 255, 0.7);
+}
+
+@media (hover: hover) {
+  button:hover {
+    cursor: pointer;
+    background-color: rgb(155, 155, 155);
+  }
+  #add-btn:hover {
+    background-color: rgb(165, 165, 165);
+  }
 }
 
 @media (max-width: 399px) {
