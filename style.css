@@ -69,8 +69,8 @@ h1 {
   margin-bottom: 0.1em;
   color: rgb(190, 190, 190);
   text-shadow:
-    -3px -3px 11px rgba(255, 255, 255, 0.6),
-     3px  3px 11px rgba(0, 0, 0, 0.3);
+    -0.03em -0.03em 0.12em rgba(255, 255, 255, 0.8),
+     0.03em  0.03em 0.12em rgba(0, 0, 0, 0.5);
 }
 
 h3 {
@@ -102,8 +102,8 @@ h3 {
   margin-right: 30px;
   background-color: rgb(190, 190, 190);
   box-shadow:
-    -0.25em -0.25em 1em rgba(255, 255, 255, 0.6),
-     0.25em  0.25em 1em rgba(0, 0, 0, 0.3);
+    -0.25em -0.25em 1em rgba(255, 255, 255, 0.8),
+     0.25em  0.25em 1em rgba(0, 0, 0, 0.5);
   border-radius: 1.25em;
 }
 
@@ -136,8 +136,8 @@ button {
 #title-author, #asc-desc {
   margin: 0 4px;
   box-shadow: 
-    inset 2px 2px 6px rgba(0, 0, 0, 0.3),
-    inset -2px -2px 4px rgba(255, 255, 255, 0.7);
+    inset 2px 2px 6px rgba(0, 0, 0, 0.5),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.8);
   overflow: hidden;
 }
 
@@ -225,8 +225,8 @@ button {
   height: 100%;
   border-radius: 50%;
   box-shadow:
-    -0.25em -0.25em 1em rgba(255, 255, 255, 0.6),
-     0.25em  0.25em 1em rgba(0, 0, 0, 0.3);
+    -0.25em -0.25em 1em rgba(255, 255, 255, 0.8),
+     0.25em  0.25em 1em rgba(0, 0, 0, 0.5);
 }
 
 #add-btn {
