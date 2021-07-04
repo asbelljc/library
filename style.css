@@ -124,6 +124,7 @@ button {
   position: relative;
   background-color: rgb(175, 175, 175);
   color: white;
+  font-family: inherit;
   font-weight: 400;
   border: none;
   line-height: 0;
