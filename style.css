@@ -97,12 +97,12 @@ h3 {
   margin-right: 30px;
   background-color: rgb(190, 190, 190);
   box-shadow:
-    -0.25em -0.25em 1em rgba(255, 255, 255, 0.8),
-     0.25em  0.25em 1em rgba(0, 0, 0, 0.5);
+    -4px -4px 16px rgba(255, 255, 255, 0.8),
+     4px  4px 16px rgba(0, 0, 0, 0.5);
   border-radius: 1.25em;
 }
 
-#sort > * {
+#sort > button {
   border-radius: 13px;
 }
 
@@ -111,7 +111,7 @@ h3 {
   font-size: 0.75em;
   background-color: rgb(80, 80, 80);
   color: transparent;
-  text-shadow: 0.5px 0.5px 0.5px rgba(255, 255, 255, 0.4);
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.4);
   margin-left: 1.5em;
   margin-right: 0.5em;
   -webkit-background-clip: text;
@@ -121,6 +121,12 @@ h3 {
 
 button {
   position: relative;
+  margin: 0 4px;
+  box-shadow: 
+    inset 2px 2px 6px rgba(0, 0, 0, 0.5),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.8),
+    inset 0 0 0 0.7px rgb(190, 190, 190);
+  overflow: hidden;
   background-color: rgb(175, 175, 175);
   color: white;
   font-family: inherit;
@@ -129,21 +135,13 @@ button {
   line-height: 0;
   padding: 0;
   will-change: background-color;
-  transition: background-color 0.3s;
+  transition: background-color 0.15s;
 }
 
 button, span {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-#title-author, #asc-desc {
-  margin: 0 4px;
-  box-shadow: 
-    inset 2px 2px 6px rgba(0, 0, 0, 0.5),
-    inset -2px -2px 4px rgba(255, 255, 255, 0.8);
-  overflow: hidden;
 }
 
 .slider {
@@ -160,7 +158,7 @@ button, span {
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 13px;
   will-change: transform;
-  transition: transform 0.3s;
+  transition: transform 0.25s;
 }
 
 #title-author .slider.toggled {
@@ -219,11 +217,13 @@ button, span {
   height: 100%;
   border-radius: 50%;
   box-shadow:
-    -0.25em -0.25em 1em rgba(255, 255, 255, 0.8),
-     0.25em  0.25em 1em rgba(0, 0, 0, 0.5);
+    -4px -4px 16px rgba(255, 255, 255, 0.8),
+     4px  4px 16px rgba(0, 0, 0, 0.5);
 }
 
 #add-btn {
+  margin: auto;
+  box-shadow: none;
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -231,7 +231,7 @@ button, span {
   font-weight: 900;
   background-color: rgb(190, 190, 190);
   text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
-  transition: box-shadow 0.3s, background-color 0.3s;
+  transition: box-shadow 0.25s, background-color 0.15s;
 }
 
 #add-btn.toggled {
@@ -301,18 +301,16 @@ button, span {
 .read-toggle {
   background-image:
     linear-gradient(to right, green 0, green 50%, red 50%, red 100%);
+  background-color: transparent;
+  background-blend-mode: multiply;
   background-size: 210px 26px;
   background-position: right;
   width: 140px;
   height: 26px;
   border-radius: 13px;
-  overflow: hidden;
-  box-shadow: 
-    inset 2px 2px 6px rgba(0, 0, 0, 0.5),
-    inset -2px -2px 4px rgba(255, 255, 255, 0.8),
-    inset 0 0 0 0.7px rgb(190, 190, 190);
   will-change: background-position;
-  transition: background-position 0.3s;
+  transition: background-position 0.25s,
+              background-color 0.15s;
 }
 
 .read-toggle.toggled {
@@ -339,9 +337,15 @@ button, span {
   #add-btn:hover {
     background-color: rgb(165, 165, 165);
   }
+  .read-toggle:hover {
+    background-color: rgb(230, 230, 230);
+  }
   button:active {
     background-color: rgb(140, 140, 140);
   }
+  .read-toggle:active {
+    background-color: rgb(195, 195, 195);
+}
 }
 
 @media (max-width: 399px) {
