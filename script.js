@@ -38,3 +38,10 @@ const addButton = document.getElementById("add-btn");
 addButton.addEventListener("click", () => {
   addButton.classList.toggle("toggled");
 });
+
+const readToggle = document.getElementsByClassName("read-toggle")[0];
+
+readToggle.addEventListener("click", () => {
+  readToggle.classList.toggle("toggled");
+  readToggle.firstElementChild.classList.toggle("toggled");
+});

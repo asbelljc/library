@@ -1,15 +1,15 @@
-/* m-plus-rounded-1c-regular - latin */
+/* m-plus-rounded-1c-500 - latin */
 @font-face {
   font-family: 'M PLUS Rounded 1c';
   font-style: normal;
-  font-weight: 400;
-  src: url('Fonts/m-plus-rounded-1c-v10-latin-regular.eot'); /* IE9 Compat Modes */
+  font-weight: 500;
+  src: url('Fonts/m-plus-rounded-1c-v10-latin-500.eot'); /* IE9 Compat Modes */
   src: local(''),
-       url('Fonts/m-plus-rounded-1c-v10-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('Fonts/m-plus-rounded-1c-v10-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('Fonts/m-plus-rounded-1c-v10-latin-regular.woff') format('woff'), /* Modern Browsers */
-       url('Fonts/m-plus-rounded-1c-v10-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('Fonts/m-plus-rounded-1c-v10-latin-regular.svg#MPLUSRounded1c') format('svg'); /* Legacy iOS */
+       url('Fonts/m-plus-rounded-1c-v10-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('Fonts/m-plus-rounded-1c-v10-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
+       url('Fonts/m-plus-rounded-1c-v10-latin-500.woff') format('woff'), /* Modern Browsers */
+       url('Fonts/m-plus-rounded-1c-v10-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('Fonts/m-plus-rounded-1c-v10-latin-500.svg#MPLUSRounded1c') format('svg'); /* Legacy iOS */
 }
 /* m-plus-rounded-1c-700 - latin */
 @font-face {
@@ -66,7 +66,7 @@ header {
 h1 {
   font-weight: 900;
   text-align: center;
-  margin-top: 0.3em;
+  margin-top: 0.1em;
   margin-bottom: 0.1em;
   color: rgb(190, 190, 190);
   text-shadow:
@@ -86,12 +86,6 @@ h3 {
   margin: auto;
   justify-content: space-between;
   align-items: center;
-}
-
-#nav button, #nav span {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 #sort {
@@ -115,10 +109,14 @@ h3 {
 #label {
   display: inline;
   font-size: 0.75em;
-  color: white;
-  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
-  margin-left: 2em;
+  background-color: rgb(80, 80, 80);
+  color: transparent;
+  text-shadow: 0.5px 0.5px 0.5px rgba(255, 255, 255, 0.4);
+  margin-left: 1.5em;
   margin-right: 0.5em;
+  -webkit-background-clip: text;
+     -moz-background-clip: text;
+          background-clip: text;
 }
 
 button {
@@ -126,12 +124,18 @@ button {
   background-color: rgb(175, 175, 175);
   color: white;
   font-family: inherit;
-  font-weight: 400;
+  font-weight: 500;
   border: none;
   line-height: 0;
   padding: 0;
   will-change: background-color;
   transition: background-color 0.3s;
+}
+
+button, span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #title-author, #asc-desc {
@@ -147,6 +151,8 @@ button {
   box-sizing: border-box;
   top: 0;
   left: 0;
+  width: 70px;
+  height: 26px;
   background-color: rgb(190, 190, 190);
   box-shadow:
     2px 0px 6px rgba(0, 0, 0, 0.15),
@@ -157,24 +163,11 @@ button {
   transition: transform 0.3s;
 }
 
-#title-author .slider {
-  width: 70px;
-  height: 26px;
-}
-
 #title-author .slider.toggled {
   transform: translateX(70px);
 }
 
-#title {
-  width: 70px;
-  height: 26px;
-  padding: 0;
-  z-index: 1;
-  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
-}
-
-#author {
+#title, #author {
   width: 70px;
   height: 26px;
   padding: 0;
@@ -231,8 +224,8 @@ button {
 }
 
 #add-btn {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   font-size: 1em;
   font-weight: 900;
@@ -261,12 +254,80 @@ button {
 
 .card {
   width: 100%;
-  height: 400px;
+  min-height: 100px;
   background-color: rgb(190, 190, 190);
   border-radius: 20px;
   box-shadow:
     -4px -4px 16px rgba(255, 255, 255, 0.8),
      4px  4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.card-inset {
+  margin: 20px;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.book-title {
+  margin: 0;
+  font-weight: 900;
+  background-color: rgb(80, 80, 80);
+  color: transparent;
+  text-shadow: 1.2px 1.2px 1.2px rgba(255, 255, 255, 0.4);
+  -webkit-background-clip: text;
+     -moz-background-clip: text;
+          background-clip: text;
+}
+
+.book-author, .page-count {
+  font-weight: 700;
+  background-color: rgb(80, 80, 80);
+  color: transparent;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.4);
+  -webkit-background-clip: text;
+     -moz-background-clip: text;
+          background-clip: text;
+}
+
+.page-count {
+  margin: 0;
+  font-size: 0.75em;
+}
+
+.read-toggle {
+  background-image:
+    linear-gradient(to right, green 0, green 50%, red 50%, red 100%);
+  background-size: 210px 26px;
+  background-position: right;
+  width: 140px;
+  height: 26px;
+  border-radius: 13px;
+  overflow: hidden;
+  box-shadow: 
+    inset 2px 2px 6px rgba(0, 0, 0, 0.5),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.8),
+    inset 0 0 0 0.7px rgb(190, 190, 190);
+  will-change: background-position;
+  transition: background-position 0.3s;
+}
+
+.read-toggle.toggled {
+  background-position: left;
+}
+
+.read-toggle .slider.toggled {
+  transform: translateX(70px);
+}
+
+.read, .unread {
+  width: 70px;
+  height: 26px;
+  padding: 0;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
 
 /* REMOVES STICKY HOVER EFFECTS ON MOBILE!!! */
