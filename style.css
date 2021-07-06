@@ -135,7 +135,7 @@ button {
   line-height: 0;
   padding: 0;
   will-change: background-color;
-  transition: background-color 0.15s;
+  transition: background-color 0.25s;
 }
 
 button, span {
@@ -158,7 +158,7 @@ button, span {
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 13px;
   will-change: transform;
-  transition: transform 0.25s;
+  transition: transform 0.3s;
 }
 
 #title-author .slider.toggled {
@@ -231,7 +231,7 @@ button, span {
   font-weight: 900;
   background-color: rgb(190, 190, 190);
   text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
-  transition: box-shadow 0.25s, background-color 0.15s;
+  transition: box-shadow 0.25s, background-color 0.25s;
 }
 
 #add-btn.toggled {
@@ -309,8 +309,8 @@ button, span {
   height: 26px;
   border-radius: 13px;
   will-change: background-position;
-  transition: background-position 0.25s,
-              background-color 0.15s;
+  transition: background-position 0.3s,
+              background-color 0.25s;
 }
 
 .read-toggle.toggled {
@@ -342,9 +342,11 @@ button, span {
   }
   button:active {
     background-color: rgb(140, 140, 140);
+    transition: background-color 0.1s;
   }
   .read-toggle:active {
     background-color: rgb(195, 195, 195);
+    transition: background-color 0.1s;
 }
 }
 
