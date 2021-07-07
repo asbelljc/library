@@ -40,16 +40,16 @@
         <h3 id="label">SORT BY</h3>
         <button id="title-author">
           <span class="slider"></span>
-          <span id="title">TITLE</span>
           <span id="author">AUTHOR</span>
+          <span id="title">TITLE</span>
         </button>
         <button id="asc-desc">
           <span class="slider"></span>
-          <span id="ascending">
-            <img id="up-arrow" src="Images/upArrow1.svg">
-          </span>
           <span id="descending">
             <img id="down-arrow" src="Images/downArrow1.svg">
+          </span>
+          <span id="ascending">
+            <img id="up-arrow" src="Images/upArrow1.svg">
           </span>
         </button>
       </div>
@@ -60,6 +60,15 @@
     <div id="grid">
       <div class="card">
         <div class="card-inset">
+          <button class="delete-btn">
+            <svg height="32" width="32">
+              <text x=50% y=50% 
+                    dominant-baseline="middle" 
+                    text-anchor="middle" 
+                    fill="white"
+                    style="font-size: 24; font-weight: 700;">×</text>
+            </svg>
+          </button>
           <h2 class="book-title">Harry Potter and the Chamber of Secrets</h2>
           <p class="book-author">J. K. Rowling</p>
           <div class="card-bottom">

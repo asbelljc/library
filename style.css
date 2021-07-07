@@ -158,7 +158,8 @@ button, span {
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 13px;
   will-change: transform;
-  transition: transform 0.3s;
+  transition: transform 0.3s,
+              opacity 0.3s;
 }
 
 #title-author .slider.toggled {
@@ -169,13 +170,14 @@ button, span {
   width: 70px;
   height: 26px;
   padding: 0;
-  z-index: 1;
+  /* z-index: 1; */
   text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
 
 #asc-desc .slider {
   width: 26px;
   height: 26px;
+  z-index: 1;
 }
 
 #asc-desc .slider.toggled {
@@ -198,13 +200,13 @@ button, span {
 
 #up-arrow {
   width: 8px;
-  z-index: 1;
+  /* z-index: 1; */
   filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
 }
 
 #down-arrow {
   width: 8px;
-  z-index: 1;
+  /* z-index: 1; */
   filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
 }
 
@@ -231,7 +233,8 @@ button, span {
   font-weight: 900;
   background-color: rgb(190, 190, 190);
   text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
-  transition: box-shadow 0.25s, background-color 0.25s;
+  transition: box-shadow 0.25s, 
+              background-color 0.25s;
 }
 
 #add-btn.toggled {
@@ -328,11 +331,29 @@ button, span {
   text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
 
+.delete-btn {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(190, 190, 190);
+  float: right;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  box-shadow: none;
+  border: none;
+  border-radius: 16px;
+  width: 32px;
+  height: 32px;
+}
+
 /* REMOVES STICKY HOVER EFFECTS ON MOBILE!!! */
 @media (hover: hover) and (pointer: fine) {
   button:hover {
     cursor: pointer;
     background-color: rgb(155, 155, 155);
+  }
+  #title-author:hover .slider {
+    opacity: 0.7;
+    transition: opacity 0.5s 1s,
+                transform 0.3s;
   }
   #add-btn:hover {
     background-color: rgb(165, 165, 165);
@@ -347,7 +368,7 @@ button, span {
   .read-toggle:active {
     background-color: rgb(195, 195, 195);
     transition: background-color 0.1s;
-}
+  }
 }
 
 @media (max-width: 399px) {
