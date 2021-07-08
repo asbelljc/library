@@ -8,7 +8,12 @@ router.get('/', (req, res) => {
     console.log("testing");
     res.send("testing");
     console.log("testing2");
-})
+});
 
+router.get('/test', (req, res) => {
+  console.log("testing");
+  res.send("testing");
+  console.log("testing2");
+});
 
 module.exports = router
