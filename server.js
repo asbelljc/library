@@ -4,6 +4,8 @@ const app = express();
 
 const port = process.env.PORT || 5000;
 
-app.use("/", () => console.log("testmessage"));
+const books = require("./books.js");
+
+app.use("/", books);
 
 app.listen(port, () => console.log(`Server started on port ${port}`));

@@ -1,0 +1,12 @@
+const express = require('express')
+const router = express.Router();
+
+// @route   GET api/books
+// @desc    Get all books
+// @access  Public
+router.get('/', (req, res) => {
+    console.log("testing");
+})
+
+
+module.exports = router
