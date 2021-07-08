@@ -272,6 +272,7 @@ button, span {
 }
 
 .book-title {
+  word-wrap: break-word;
   margin: 0;
   font-weight: 900;
   background-color: rgb(80, 80, 80);
@@ -367,8 +368,8 @@ button, span {
     background-color: rgb(155, 155, 155);
   }
   #title-author:hover .slider {
-    opacity: 0.7;
-    transition: opacity 0.5s 0.7s,
+    opacity: 0.6;
+    transition: opacity 1s,
                 transform 0.3s;
   }
   #add-btn:hover, .delete-btn:hover {
