@@ -45,3 +45,10 @@ readToggle.addEventListener("click", () => {
   readToggle.classList.toggle("toggled");
   readToggle.firstElementChild.classList.toggle("toggled");
 });
+
+const deleteButton = document.getElementsByClassName("delete-btn")[0];
+
+deleteButton.addEventListener("click", () => {
+  deleteButton.classList.toggle("toggled");
+  deleteButton.firstElementChild.classList.toggle("toggled");
+});
