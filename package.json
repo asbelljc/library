@@ -21,5 +21,8 @@
   "homepage": "https://github.com/asbelljc/library#readme",
   "engines": {
     "node": "15.11.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }
