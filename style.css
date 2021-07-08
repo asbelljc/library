@@ -228,7 +228,7 @@ button, span {
   border-radius: 50%;
   background-color: inherit;
   text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
-  transition: box-shadow 0.25s, 
+  transition: box-shadow 0.3s, 
               background-color 0.25s;
 }
 
@@ -236,7 +236,8 @@ button, span {
   background-color: rgb(165, 165, 165);
   box-shadow: 
     inset 2px 2px 7px rgba(0, 0, 0, 0.5),
-    inset -2px -2px 5px rgba(255, 255, 255, 0.8);
+    inset -2px -2px 5px rgba(255, 255, 255, 0.8),
+    inset 0 0 0 0.7px rgb(190, 190, 190);
 }
 
 #grid {
@@ -339,7 +340,7 @@ button, span {
   border-radius: 18px;
   width: 36px;
   height: 36px;
-  transition: box-shadow 0.25s, 
+  transition: box-shadow 0.3s, 
               background-color 0.25s;
 }
 
@@ -371,7 +372,7 @@ button, span {
                 transform 0.3s;
   }
   #add-btn:hover, .delete-btn:hover {
-    background-color: rgb(165, 165, 165);
+    background-color: rgb(155, 155, 155);
   }
   .read-toggle:hover {
     background-color: rgb(230, 230, 230);
