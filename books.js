@@ -6,6 +6,8 @@ const router = express.Router();
 // @access  Public
 router.get('/', (req, res) => {
     console.log("testing");
+    res.send("testing");
+    console.log("testing2");
 })
 
 
