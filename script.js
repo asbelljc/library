@@ -47,8 +47,12 @@ readToggle.addEventListener("click", () => {
 });
 
 const deleteButton = document.getElementsByClassName("delete-btn")[0];
+function toggleDelete() {
+  deleteButton.classList.toggle("toggled");
+}
 
 deleteButton.addEventListener("click", () => {
-  deleteButton.classList.toggle("toggled");
-  deleteButton.firstElementChild.classList.toggle("toggled");
+  toggleDelete();
+  setTimeout(toggleDelete, 500);
+  document.getElementsByClassName("card")[0].classList.toggle("toggled");
 });
