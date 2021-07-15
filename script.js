@@ -5,9 +5,6 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
-  this.info = function() {
-    return `${title} by ${author}, ${pages} pages, ${read}`;
-  };
 }
 
 function addToLibrary(book) {
@@ -47,6 +44,7 @@ readToggle.addEventListener("click", () => {
 });
 
 const deleteButton = document.getElementsByClassName("delete-btn")[0];
+
 function toggleDelete() {
   deleteButton.classList.toggle("toggled");
 }

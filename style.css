@@ -119,7 +119,7 @@ h3 {
           background-clip: text;
 }
 
-button {
+button, label {
   position: relative;
   margin: 0 4px;
   box-shadow: 
@@ -130,6 +130,7 @@ button {
   background-color: rgb(175, 175, 175);
   color: white;
   font-family: inherit;
+  font-size: 13.3333px;
   font-weight: 500;
   border: none;
   line-height: 0;
@@ -138,7 +139,7 @@ button {
   transition: background-color 0.25s;
 }
 
-button, span {
+button, label, span {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -258,6 +259,7 @@ button, span {
 }
 
 .card {
+  display: flex;
   width: 100%;
   min-height: 100px;
   background-color: rgb(190, 190, 190);
@@ -276,10 +278,16 @@ button, span {
 }
 
 .card-inset {
+  position: relative;
+  flex: 1;
   margin: 20px;
 }
 
 .card-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -295,6 +303,10 @@ button, span {
   -webkit-background-clip: text;
      -moz-background-clip: text;
           background-clip: text;
+}
+
+.book-author {
+  padding-bottom: 16px;
 }
 
 .book-author, .page-count {
@@ -376,9 +388,91 @@ button, span {
   height: 10.8px;
 }
 
+input[type="checkbox"] {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+textarea {
+  background: none;
+  border: none;
+  caret-color: white;
+}
+
+textarea::placeholder {
+  font-family: inherit;
+  background-color: rgb(80, 80, 80);
+  color: transparent;
+  -webkit-background-clip: text;
+     -moz-background-clip: text;
+          background-clip: text;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.grow-wrap {
+  display: grid;
+}
+
+.grow-wrap > * {
+  resize: none;
+  overflow: hidden;
+}
+
+.grow-wrap::after {
+  content: attr(data-replicated-value) " ";
+  white-space: pre-wrap;
+  visibility: hidden;
+}
+
+.grow-wrap > *,
+.grow-wrap::after {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  grid-area: 1 / 1 / 1 / 1;
+  background-color: rgb(80, 80, 80);
+  color: transparent;
+  -webkit-background-clip: text;
+     -moz-background-clip: text;
+          background-clip: text;
+}
+
+.title-input,
+.title-input::placeholder,
+.title-wrap::after {
+  font-size: 24px;
+  font-weight: 900;
+  text-shadow: 1.2px 1.2px 1.2px rgba(255, 255, 255, 0.4);
+}
+
+.author-input,
+.author-input::placeholder,
+.author-input::after {
+  padding-bottom: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.4);
+}
+/* page input WILL need limitation in javascript */
+.pages-input,
+.pages-input::placeholder,
+.pages-input::after {
+  max-width: 140px;
+  max-height: 26px;
+  font-size: 12px;
+  font-weight: 700;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.4);
+}
+
 /* REMOVES STICKY HOVER EFFECTS ON MOBILE!!! */
 @media (hover: hover) and (pointer: fine) {
-  button:hover {
+  button:hover,
+  label:hover {
     cursor: pointer;
     background-color: rgb(155, 155, 155);
   }

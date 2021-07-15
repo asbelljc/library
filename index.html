@@ -88,8 +88,63 @@
           </div>
         </div>
       </div>
-      <div class="card"></div>
-      <div class="card"></div>
+      <div class="card">
+        <!-- <div class="card-inset">
+          <button class="delete-btn">
+            <svg version="1.1" id="Layer_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
+            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 21.6 21.6"
+            style="enable-background:new 0 0 21.6 21.6;" xml:space="preserve" class="cross">
+              <path d="M20.7,0.9L20.7,0.9c-1.2-1.2-3.1-1.2-4.2,0l-5.7,5.7L5.1,0.9c-1.2-1.2-3.1-1.2-4.2,0l0,0c-1.2,1.2-1.2,3.1,0,4.2l5.7,5.7
+              l-5.7,5.7c-1.2,1.2-1.2,3.1,0,4.2l0,0c1.2,1.2,3.1,1.2,4.2,0l5.7-5.7l5.7,5.7c1.2,1.2,3.1,1.2,4.2,0l0,0c1.2-1.2,1.2-3.1,0-4.2
+              L15,10.8l5.7-5.7C21.8,3.9,21.8,2.1,20.7,0.9z"/>
+            </svg>
+          </button>
+          <h2 class="book-title">Apples</h2>
+          <p class="book-author">Mr. Fruit</p>
+          <div class="card-bottom">
+            <p class="page-count">528 pages</p>
+            <button class="read-toggle">
+              <span class="slider"></span>
+              <span class="read">READ</span>
+              <span class="unread">UNREAD</span>
+            </button>
+          </div>
+        </div> -->
+        <form class="card-inset">
+          <button class="delete-btn">
+            <svg version="1.1" id="Layer_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
+            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 21.6 21.6"
+            style="enable-background:new 0 0 21.6 21.6;" xml:space="preserve" class="cross">
+              <path d="M20.7,0.9L20.7,0.9c-1.2-1.2-3.1-1.2-4.2,0l-5.7,5.7L5.1,0.9c-1.2-1.2-3.1-1.2-4.2,0l0,0c-1.2,1.2-1.2,3.1,0,4.2l5.7,5.7
+              l-5.7,5.7c-1.2,1.2-1.2,3.1,0,4.2l0,0c1.2,1.2,3.1,1.2,4.2,0l5.7-5.7l5.7,5.7c1.2,1.2,3.1,1.2,4.2,0l0,0c1.2-1.2,1.2-3.1,0-4.2
+              L15,10.8l5.7-5.7C21.8,3.9,21.8,2.1,20.7,0.9z"/>
+            </svg>
+          </button>
+          <div class="grow-wrap title-wrap">
+            <textarea class="title-input" name="title" placeholder="Title"
+              onInput="this.parentNode.dataset.replicatedValue = this.value"
+              ></textarea>
+          </div>
+          <div class="grow-wrap author-wrap">
+            <textarea class="author-input" name="author" placeholder="Author"
+              onInput="this.parentNode.dataset.replicatedValue = this.value"
+              ></textarea>
+          </div>
+          <div class="card-bottom">
+            <div class="grow-wrap pages-wrap">
+              <textarea class="pages-input" name="pages" placeholder="Number of pages"
+                onInput="this.parentNode.dataset.replicatedValue = this.value"
+                ></textarea>
+            </div>
+            <label class="read-toggle">
+              <input type="checkbox">
+              <span class="slider"></span>
+              <span class="read">READ</span>
+              <span class="unread">UNREAD</span>
+            </label>
+          </div>
+        </form>
+      </div>
     </div>
   </body>
 </html>
