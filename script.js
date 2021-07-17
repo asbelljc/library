@@ -1,5 +1,5 @@
 let myLibrary = [];
-let grid = document.getElementById("grid");
+const grid = document.getElementById("grid");
 
 function Book(title, author, pages, isRead) {
   this.title = title;
@@ -18,7 +18,7 @@ function updateDisplay() {
     makeCard(book);
   }
 }
-
+// Manually adding cards for now, for UI development.
 let book1 = new Book(
   "Harry Potter and the Sorcerer's Stone",
   "J. K. Rowling",
