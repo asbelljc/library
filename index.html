@@ -136,12 +136,14 @@
                 onInput="this.parentNode.dataset.replicatedValue = this.value"
                 ></textarea>
             </div>
-            <label class="read-toggle">
-              <input type="checkbox">
-              <span class="slider"></span>
-              <span class="read">READ</span>
-              <span class="unread">UNREAD</span>
-            </label>
+            <div>
+              <input type="checkbox" id="mycheckbox">
+              <label class="read-toggle toggled" id ="readToggle">
+                <span class="slider toggled"></span>
+                <span class="read">READ</span>
+                <span class="unread">UNREAD</span>
+              </label>
+            </div>
           </div>
         </form>
       </div>
