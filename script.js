@@ -66,6 +66,12 @@ myLibrary = [
   book1, book2, book3, book4, book5, book6, book7
 ];
 
+function clearGrid() {
+  while (grid.firstChild) {
+    grid.removeChild(grid.firstChild);
+  }
+}
+
 function populateGrid() {
   myLibrary.forEach(book => {
     const card = document.createElement("div");
@@ -85,19 +91,20 @@ function populateGrid() {
     card.classList.add("card");
     cardInset.classList.add("card-inset");
     deleteButton.classList.add("delete-btn");
+      deleteButton.setAttribute("type", "button");
       deleteButton.addEventListener("click", e => {
-        let thisCard = e.target.closest(".card");
+        let parentCard = e.target.closest(".card");
         function toggleDelete() {
           deleteButton.classList.toggle("toggled");
         }
         function toggleCard() {
-          thisCard.classList.toggle("toggled");
+          parentCard.classList.toggle("toggled");
         }
         function hideCard() {
-          thisCard.style.opacity = "0";
+          parentCard.style.opacity = "0";
         }
         function deleteCard() {
-          thisCard.remove();
+          parentCard.remove();
         }
         toggleDelete();
         setTimeout(toggleDelete, 400);
@@ -129,6 +136,7 @@ function populateGrid() {
     pageCount.classList.add("page-count");
       pageCount.innerText = `${book.pages}`;
     readToggle.classList.add("read-toggle");
+      readToggle.setAttribute("type", "button");
       readToggle.addEventListener("click", () => {
         readToggle.classList.toggle("toggled");
         slider.classList.toggle("toggled");
@@ -161,7 +169,6 @@ function populateGrid() {
   });
 }
 
-populateGrid();
 // For testing! Note "firstElementChild" rather than "firstChild"!!!!!
 // const toggleSwitches = [
 //   document.getElementById("title-author"),
