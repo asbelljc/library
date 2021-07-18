@@ -452,6 +452,7 @@ textarea:focus {
 .title-input,
 .title-input::placeholder,
 .title-wrap::after {
+  padding-bottom: 16px;
   font-size: 24px;
   font-weight: 900;
   text-shadow: 1.2px 1.2px 1.2px rgba(255, 255, 255, 0.4);
@@ -470,10 +471,14 @@ textarea:focus {
 .pages-input::placeholder,
 .pages-input::after {
   max-width: 140px;
-  max-height: 26px;
   font-size: 12px;
   font-weight: 700;
   text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+.spacer {
+  height: 26px;
+  width: 100%;
 }
 
 /* REMOVES STICKY HOVER EFFECTS ON MOBILE!!! */
