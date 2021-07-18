@@ -8,16 +8,6 @@ function Book(title, author, pages, isRead) {
   this.isRead = isRead;
 }
 
-function addToLibrary(book) {
-  myLibrary.push(book);
-}
-
-function updateDisplay() {
-  resetDisplay();
-  for (let book in myLibrary) {
-    makeCard(book);
-  }
-}
 // Manually adding cards for now, for UI development.
 let book1 = new Book(
   "Harry Potter and the Sorcerer's Stone",
@@ -67,12 +57,45 @@ myLibrary = [
 ];
 
 function clearGrid() {
-  while (grid.firstChild) {
-    grid.removeChild(grid.firstChild);
+  const allCards = Array.from(document.getElementsByClassName("card"));
+  function lowerAllCards() {
+    allCards.forEach(card => { card.classList.toggle("toggled"); });
   }
+  function hideAllCards() {
+    allCards.forEach(card => { card.style.opacity = "0"; });
+  }
+  function deleteAllCards() {
+    while (grid.firstElementChild) {
+      grid.firstElementChild.remove();
+    }
+  }
+  lowerAllCards();
+  setTimeout(hideAllCards, 400);
+  setTimeout(deleteAllCards, 1000);
 }
 
 function populateGrid() {
+  function deleteCard(e) {
+    let parentCard = e.target.closest(".card");
+    function toggleDelete() {
+      let deleteButton = e.target.closest("button");
+      deleteButton.classList.toggle("toggled");
+    }
+    function lowerCard() {
+      parentCard.classList.toggle("toggled");
+    }
+    function hideCard() {
+      parentCard.style.opacity = "0";
+    }
+    function deleteCard() {
+      parentCard.remove();
+    }
+    toggleDelete();
+    setTimeout(toggleDelete, 400);
+    setTimeout(lowerCard, 400)
+    setTimeout(hideCard, 800)
+    setTimeout(deleteCard, 1400);
+  }
   myLibrary.forEach(book => {
     const card = document.createElement("div");
     const cardInset = document.createElement("div");
@@ -92,26 +115,7 @@ function populateGrid() {
     cardInset.classList.add("card-inset");
     deleteButton.classList.add("delete-btn");
       deleteButton.setAttribute("type", "button");
-      deleteButton.addEventListener("click", e => {
-        let parentCard = e.target.closest(".card");
-        function toggleDelete() {
-          deleteButton.classList.toggle("toggled");
-        }
-        function toggleCard() {
-          parentCard.classList.toggle("toggled");
-        }
-        function hideCard() {
-          parentCard.style.opacity = "0";
-        }
-        function deleteCard() {
-          parentCard.remove();
-        }
-        toggleDelete();
-        setTimeout(toggleDelete, 400);
-        setTimeout(toggleCard, 400)
-        setTimeout(hideCard, 800)
-        setTimeout(deleteCard, 1400);
-      });
+      deleteButton.addEventListener("click", deleteCard);
     delBtnSvg.classList.add("cross");
       delBtnSvg.setAttribute("version", "1.1");
       delBtnSvg.setAttribute("xmlns:x", "&ns_extend;");
@@ -126,7 +130,10 @@ function populateGrid() {
       delBtnSvg.setAttribute("xml:space", "preserve");
     delBtnPath.setAttribute(
       "d",
-      "M20.7,0.9L20.7,0.9c-1.2-1.2-3.1-1.2-4.2,0l-5.7,5.7L5.1,0.9c-1.2-1.2-3.1-1.2-4.2,0l0,0c-1.2,1.2-1.2,3.1,0,4.2l5.7,5.7l-5.7,5.7c-1.2,1.2-1.2,3.1,0,4.2l0,0c1.2,1.2,3.1,1.2,4.2,0l5.7-5.7l5.7,5.7c1.2,1.2,3.1,1.2,4.2,0l0,0c1.2-1.2,1.2-3.1,0-4.2L15,10.8l5.7-5.7C21.8,3.9,21.8,2.1,20.7,0.9z"
+      "M20.7,0.9L20.7,0.9c-1.2-1.2-3.1-1.2-4.2,0l-5.7,5.7L5.1,0.9c-1.2-1.2-3." +
+      "1-1.2-4.2,0l0,0c-1.2,1.2-1.2,3.1,0,4.2l5.7,5.7l-5.7,5.7c-1.2,1.2-1.2,3" +
+      ".1,0,4.2l0,0c1.2,1.2,3.1,1.2,4.2,0l5.7-5.7l5.7,5.7c1.2,1.2,3.1,1.2,4.2" +
+      ",0l0,0c1.2-1.2,1.2-3.1,0-4.2L15,10.8l5.7-5.7C21.8,3.9,21.8,2.1,20.7,0.9z"
     );
     title.classList.add("book-title");
       title.innerText = `${book.title}`;
@@ -168,6 +175,11 @@ function populateGrid() {
     grid.appendChild(card);
   });
 }
+
+// const addButton = document.getElementById("add-btn");
+// addButton.addEventListener("click", () => {
+
+// });
 
 // For testing! Note "firstElementChild" rather than "firstChild"!!!!!
 // const toggleSwitches = [

@@ -100,13 +100,14 @@ h3 {
     -4px -4px 16px rgba(255, 255, 255, 0.8),
      4px  4px 16px rgba(0, 0, 0, 0.5);
   border-radius: 1.25em;
+  transition: visibility 0.3s;
 }
 
 #sort > button {
   border-radius: 13px;
 }
 
-#label {
+#sort-label {
   display: inline;
   font-size: 0.75em;
   background-color: rgb(80, 80, 80);
