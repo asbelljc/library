@@ -57,7 +57,9 @@ myLibrary = [
   book1, book2, book3, book4, book5, book6, book7
 ];
 
-addButton.addEventListener("click", () => {
+function addButtonFunction() {
+  addButton.removeEventListener("click", addButtonFunction);
+
   if (grid.querySelector("form") !== null) {
     addButton.classList.toggle("toggled");
     clearGrid();
@@ -67,7 +69,13 @@ addButton.addEventListener("click", () => {
     clearGrid();
     setTimeout(makeForm, 1000);
   }
-});
+  
+  setTimeout( () => {
+    addButton.addEventListener("click", addButtonFunction);
+  }, 1000);
+}
+
+addButton.addEventListener("click", addButtonFunction);
 
 function clearGrid() {
   const allCards = Array.from(document.getElementsByClassName("card"));
@@ -86,7 +94,7 @@ function clearGrid() {
   setTimeout(hideAllCards, 300);
   setTimeout(deleteAllCards, 900);
 }
-
+// TODO: make animation stuff un-interruptible
 function makeForm() {
   const card = document.createElement("div");
     const form = document.createElement("form");
@@ -160,7 +168,7 @@ function makeForm() {
       "7,0.9z"
     );
     titleWrap.className = "grow-wrap title-wrap";
-    titleInput.classList.add("title-input");
+    titleInput.classList.add("title-input"); // TODO: debug title input display
       titleInput.name = "title";
       titleInput.placeholder = "Title";
       titleInput.rows = "1";
