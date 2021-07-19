@@ -62,14 +62,24 @@ function addButtonFunction() {
 
   if (grid.querySelector("form") !== null) {
     addButton.classList.toggle("toggled");
+    document.getElementById("sort-control").style.visibility = "visible"; // reveal sort control
+    setTimeout( () => {                                                   // as cards reveal
+      document.getElementById("sort-control").style.opacity = "1";
+    }, 1400);
     clearGrid();
     setTimeout(populateGrid, 1000);
   } else {
     addButton.classList.toggle("toggled");
+    setTimeout( () => {                                             // hide sort control
+      document.getElementById("sort-control").style.opacity = "0";  // as form reveals
+    }, 400);                                                          
+    setTimeout( () => {                                          
+      document.getElementById("sort-control").style.visibility = "hidden";
+    }, 1000);
     clearGrid();
     setTimeout(makeForm, 1000);
   }
-  
+
   setTimeout( () => {
     addButton.addEventListener("click", addButtonFunction);
   }, 1000);
@@ -229,10 +239,10 @@ function makeForm() {
     grid.appendChild(card);
 
     setTimeout( () => {
-      card.classList.toggle("toggled"); // raises form card
+      card.classList.toggle("toggled"); // raise form card
     }, 100);
     setTimeout( () => {
-      form.style.opacity = "1";    // reveals form content
+      form.style.opacity = "1"; // reveal form content
     }, 400);
 }
 
