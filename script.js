@@ -57,8 +57,8 @@ myLibrary = [
   book1, book2, book3, book4, book5, book6, book7
 ];
 
-function addButtonFunction() {
-  addButton.removeEventListener("click", addButtonFunction);
+function swapGridContents() {
+  addButton.removeEventListener("click", swapGridContents);
 
   if (grid.querySelector("form") !== null) {
     addButton.classList.toggle("toggled");
@@ -81,11 +81,11 @@ function addButtonFunction() {
   }
 
   setTimeout( () => {
-    addButton.addEventListener("click", addButtonFunction);
+    addButton.addEventListener("click", swapGridContents);
   }, 1000);
 }
 
-addButton.addEventListener("click", addButtonFunction);
+addButton.addEventListener("click", swapGridContents);
 
 function clearGrid() {
   const allCards = Array.from(document.getElementsByClassName("card"));
@@ -157,6 +157,13 @@ function makeForm() {
     cancelButton.id = "cancel-btn";
       cancelButton.type = "button";
       cancelButton.title = "Cancel";
+      cancelButton.addEventListener("click", () => {
+        cancelButton.classList.toggle("toggled");
+        setTimeout( () => {
+          cancelButton.classList.toggle("toggled");
+          swapGridContents();
+        }, 400);
+      });
     cancelBtnSvg.classList.add("cross");
       cancelBtnSvg.setAttribute("version", "1.1");
       cancelBtnSvg.setAttribute("xmlns:x", "&ns_extend;");
