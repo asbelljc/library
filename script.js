@@ -258,28 +258,32 @@ function makeForm() {
 }
 
 function populateGrid() {
-  const deleteCard = e => {
-    const parentCard = e.target.closest(".card");
-    const clickedDelBtn = e.target.closest("button");
-    const toggleDelete = () => {
-      clickedDelBtn.classList.toggle("toggled");
-    }
-    const lowerCard = () => {
-      parentCard.classList.toggle("toggled");
-    }
-    const hideCard = () => {
-      parentCard.style.opacity = "0";
-    }
-    const removeCard = () => {
-      parentCard.remove();
-    }
-    clickedDelBtn.removeEventListener("click", deleteCard);
-    toggleDelete();
-    setTimeout(toggleDelete, 400);
-    setTimeout(lowerCard, 400)
-    setTimeout(hideCard, 800)
-    setTimeout(removeCard, 1400);
-  }
+  // const deleteCard = e => {
+  //   const parentCard = e.target.closest(".card");
+  //   const cardTitle = parentCard.querySelector("h2").innerText;
+  //   const clickedDelBtn = e.target.closest("button");
+  //   const toggleDelete = () => {
+  //     clickedDelBtn.classList.toggle("toggled");
+  //   }
+  //   const lowerCard = () => {
+  //     parentCard.classList.toggle("toggled");
+  //   }
+  //   const hideCard = () => {
+  //     parentCard.style.opacity = "0";
+  //   }
+  //   const removeCard = () => {
+  //     parentCard.remove();
+  //   }
+  //   const removeData = () => {
+  //     myLibrary
+  //   }
+  //   clickedDelBtn.removeEventListener("click", deleteCard);
+  //   toggleDelete();
+  //   setTimeout(toggleDelete, 400);
+  //   setTimeout(lowerCard, 400)
+  //   setTimeout(hideCard, 800)
+  //   setTimeout(removeCard, 1400);
+  // }
   myLibrary.forEach(book => {
     const card = document.createElement("div");
     const cardInset = document.createElement("div");
@@ -294,6 +298,30 @@ function populateGrid() {
     const slider = document.createElement("span");
     const read = document.createElement("span");
     const unread = document.createElement("span");
+    const deleteCard = () => {
+      const toggleDelete = () => {
+        deleteButton.classList.toggle("toggled");
+      }
+      const lowerCard = () => {
+        card.classList.toggle("toggled");
+      }
+      const hideCard = () => {
+        card.style.opacity = "0";
+      }
+      const removeCard = () => {
+        card.remove();
+      }
+      const eraseData = () => {
+        myLibrary.splice(myLibrary.indexOf(book), 1);
+      }
+      deleteButton.removeEventListener("click", deleteCard);
+      toggleDelete();
+      setTimeout(toggleDelete, 400);
+      setTimeout(lowerCard, 400)
+      setTimeout(hideCard, 800)
+      setTimeout(removeCard, 1400);
+      eraseData();
+    }
   
     card.classList.add("card");
       card.classList.toggle("toggled"); // starts cards lowered (flattened)
