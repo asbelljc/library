@@ -58,23 +58,24 @@ myLibrary = [
 ];
 
 function swapGridContents() {
+  const sortControl = document.getElementById("sort-control");
   addButton.removeEventListener("click", swapGridContents);
 
   if (grid.querySelector("form") !== null) {
     addButton.classList.toggle("toggled");
-    document.getElementById("sort-control").style.visibility = "visible"; // reveal sort control
-    setTimeout( () => {                                                   // as cards reveal
-      document.getElementById("sort-control").style.opacity = "1";
+    sortControl.style.visibility = "visible"; // reveal sort control
+    setTimeout( () => {                       // as cards reveal
+      sortControl.style.opacity = "1";
     }, 1400);
     clearGrid();
     setTimeout(populateGrid, 1000);
   } else {
     addButton.classList.toggle("toggled");
-    setTimeout( () => {                                             // hide sort control
-      document.getElementById("sort-control").style.opacity = "0";  // as form reveals
+    setTimeout( () => {                 // hide sort control
+      sortControl.style.opacity = "0";  // as form reveals
     }, 400);                                                          
     setTimeout( () => {                                          
-      document.getElementById("sort-control").style.visibility = "hidden";
+      sortControl.style.visibility = "hidden";
     }, 1000);
     clearGrid();
     setTimeout(makeForm, 1000);
@@ -256,26 +257,27 @@ function makeForm() {
 }
 
 function populateGrid() {
-  function deleteCard(e) {
-    let parentCard = e.target.closest(".card");
-    function toggleDelete() {
-      let deleteButton = e.target.closest("button");
-      deleteButton.classList.toggle("toggled");
+  const deleteCard = e => {
+    const parentCard = e.target.closest(".card");
+    const clickedDelBtn = e.target.closest("button");
+    const toggleDelete = () => {
+      clickedDelBtn.classList.toggle("toggled");
     }
-    function lowerCard() {
+    const lowerCard = () => {
       parentCard.classList.toggle("toggled");
     }
-    function hideCard() {
+    const hideCard = () => {
       parentCard.style.opacity = "0";
     }
-    function deleteCard() {
+    const removeCard = () => {
       parentCard.remove();
     }
+    clickedDelBtn.removeEventListener("click", deleteCard);
     toggleDelete();
     setTimeout(toggleDelete, 400);
     setTimeout(lowerCard, 400)
     setTimeout(hideCard, 800)
-    setTimeout(deleteCard, 1400);
+    setTimeout(removeCard, 1400);
   }
   myLibrary.forEach(book => {
     const card = document.createElement("div");
