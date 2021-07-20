@@ -129,6 +129,23 @@ function makeForm() {
   const read = document.createElement("span");
   const unread = document.createElement("span");
   const readCheckbox = document.createElement("input");
+  const submitForm = () => {
+    submitButton.removeEventListener("click", submitForm);
+
+    const book = new Book(
+      titleInput.value,
+      authorInput.value,
+      pagesInput.value,
+      readCheckbox.checked
+    )
+    myLibrary.push(book);
+
+    submitButton.classList.toggle("toggled");
+    setTimeout( () => {
+      submitButton.classList.toggle("toggled");
+      swapGridContents();
+    }, 400);
+  }
   const cancel = () => {
     cancelButton.removeEventListener("click", cancel);
 
@@ -146,7 +163,7 @@ function makeForm() {
   submitButton.id = "submit-btn";
     submitButton.type = "button"; // TEMPORARY - will be "submit" for backend
     submitButton.title = "Submit";
-    // submitButton.addEventListener("click", submitForm);
+    submitButton.addEventListener("click", submitForm);
   submitBtnSvg.classList.add("check");
     submitBtnSvg.setAttribute("version", "1.1");
     submitBtnSvg.setAttribute("xmlns:x", "&ns_extend;");
@@ -234,6 +251,7 @@ function makeForm() {
   pagesWrap.appendChild(pagesInput);
   cardBottom.appendChild(pagesWrap);
     cardBottom.appendChild(readToggle);
+    cardBottom.appendChild(readCheckbox);
   authorWrap.appendChild(authorInput);
   titleWrap.appendChild(titleInput);
   cancelBtnSvg.appendChild(cancelBtnPath);
