@@ -30,6 +30,12 @@
           crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <script src="https://unpkg.com/animate-css-grid@latest"></script>
+    <script>
+      if (typeof(animateCSSGrid) === "undefined") {
+        document.write('<script src="animate-css-grid.js"><\/script>');
+      }
+    </script>
   </head>
   <body>
     <header>
@@ -66,79 +72,6 @@
         </button>
       </div>
     </div>
-    <div id="grid">
-      <!-- <div class="card">
-        <div class="card-inset">
-          <button type="button" class="delete-btn">
-            <svg version="1.1" id="Layer_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
-            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 21.6 21.6"
-            style="enable-background:new 0 0 21.6 21.6;" xml:space="preserve" class="cross">
-              <path d="M20.7,0.9L20.7,0.9c-1.2-1.2-3.1-1.2-4.2,0l-5.7,5.7L5.1,0.9c-1.2-1.2-3.1-1.2-4.2,0l0,0c-1.2,1.2-1.2,3.1,0,4.2l5.7,5.7
-              l-5.7,5.7c-1.2,1.2-1.2,3.1,0,4.2l0,0c1.2,1.2,3.1,1.2,4.2,0l5.7-5.7l5.7,5.7c1.2,1.2,3.1,1.2,4.2,0l0,0c1.2-1.2,1.2-3.1,0-4.2
-              L15,10.8l5.7-5.7C21.8,3.9,21.8,2.1,20.7,0.9z"/>
-            </svg>
-          </button>
-          <h2 class="book-title">A Connecticut Yankee in King Arthur's Court</h2>
-          <p class="book-author">Mark Twain</p>
-          <div class="card-bottom">
-            <p class="page-count">528 pages</p>
-            <button type="button" class="read-toggle">
-              <span class="slider"></span>
-              <span class="read">READ</span>
-              <span class="unread">UNREAD</span>
-            </button>
-          </div>
-        </div>
-      </div> -->
-      <!-- <div class="card">
-        <form class="card-inset">
-          <button type="submit" title="Submit" id="submit-btn">
-            <svg version="1.1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
-            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 26.5 21.6"
-            style="enable-background:new 0 0 26.5 21.6;" xml:space="preserve" class="check">
-              <path d="M10,20.7L25.6,5.1c1.2-1.2,1.2-3.1,0-4.2s-3.1-1.2-4.2,0L7.9,14.4l-2.7-2.7c-1.2-1.2-3.1-1.2-4.2,0s-1.2,3.1,0,4.2
-              l4.9,4.9C6.9,21.9,8.8,21.9,10,20.7"/>
-            </svg>
-          </button>
-          <button type="button" title="Cancel" id="cancel-btn">
-            <svg version="1.1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
-            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 21.6 21.6"
-            style="enable-background:new 0 0 21.6 21.6;" xml:space="preserve" class="cross">
-              <path d="M20.7,0.9L20.7,0.9c-1.2-1.2-3.1-1.2-4.2,0l-5.7,5.7L5.1,0.9c-1.2-1.2-3.1-1.2-4.2,0l0,0c-1.2,1.2-1.2,3.1,0,4.2l5.7,5.7
-              l-5.7,5.7c-1.2,1.2-1.2,3.1,0,4.2l0,0c1.2,1.2,3.1,1.2,4.2,0l5.7-5.7l5.7,5.7c1.2,1.2,3.1,1.2,4.2,0l0,0c1.2-1.2,1.2-3.1,0-4.2
-              L15,10.8l5.7-5.7C21.8,3.9,21.8,2.1,20.7,0.9z"/>
-            </svg>
-          </button>
-          <div class="grow-wrap title-wrap">
-            <textarea class="title-input" name="title" placeholder="Title" rows="1"
-              onInput="this.parentNode.dataset.replicatedValue = this.value" required
-              ></textarea>
-          </div>
-          <div class="grow-wrap author-wrap">
-            <textarea class="author-input" name="author" placeholder="Author"
-              onInput="this.parentNode.dataset.replicatedValue = this.value" required
-              ></textarea>
-          </div>
-          <div class="spacer"></div>
-          <div class="card-bottom">
-            <div class="grow-wrap pages-wrap">
-              <textarea class="pages-input" name="pages" placeholder="Number of pages" rows="1"
-                onInput="this.parentNode.dataset.replicatedValue = this.value" required
-                ></textarea>
-            </div>
-            <label for="read-checkbox" class="read-toggle">
-              <span class="slider"></span>
-              <span class="read">READ</span>
-              <span class="unread">UNREAD</span>
-            </label>
-            <input type="checkbox" id="read-checkbox" name="is-read" value="true" required>
-          </div>
-        </form>
-      </div> -->
-    </div>
+    <div id="grid"></div>
   </body>
-<script src="https://unpkg.com/animate-css-grid@latest"></script>
-<script>
-  animateCSSGrid.wrapGrid(grid, {duration : 300, stagger: 100});
-</script>
 </html>

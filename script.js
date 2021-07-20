@@ -1,6 +1,7 @@
 let myLibrary = [];
 const grid = document.getElementById("grid");
 const addButton = document.getElementById("add-btn");
+animateCSSGrid.wrapGrid(grid, {duration : 300, stagger: 100});
 
 function Book(title, author, pages, isRead) {
   this.title = title;
@@ -143,7 +144,7 @@ function makeForm() {
   form.classList.add("card-inset");
     form.style.opacity = "0";         // starts form content hidden
   submitButton.id = "submit-btn";
-    submitButton.type = "submit";
+    submitButton.type = "button"; // TEMPORARY - will be "submit" for backend
     submitButton.title = "Submit";
     // submitButton.addEventListener("click", submitForm);
   submitBtnSvg.classList.add("check");
