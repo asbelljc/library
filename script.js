@@ -106,7 +106,7 @@ function clearGrid() {
   setTimeout(hideAllCards, 300);
   setTimeout(deleteAllCards, 900);
 }
-// TODO: make animation stuff un-interruptible
+
 function makeForm() {
   const card = document.createElement("div");
   const form = document.createElement("form");
@@ -167,8 +167,8 @@ function makeForm() {
   submitBtnSvg.classList.add("check");
     submitBtnSvg.setAttribute("version", "1.1");
     submitBtnSvg.setAttribute("xmlns:x", "&ns_extend;");
-    submitBtnSvg.setAttribute("xmlns:i", "&ns_ai");
-    submitBtnSvg.setAttribute("xmlns:graph", "&ns_graphs");
+    submitBtnSvg.setAttribute("xmlns:i", "&ns_ai;");
+    submitBtnSvg.setAttribute("xmlns:graph", "&ns_graphs;");
     submitBtnSvg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
     submitBtnSvg.setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink");
     submitBtnSvg.setAttribute("x", "0px");
@@ -189,8 +189,8 @@ function makeForm() {
   cancelBtnSvg.classList.add("cross");
     cancelBtnSvg.setAttribute("version", "1.1");
     cancelBtnSvg.setAttribute("xmlns:x", "&ns_extend;");
-    cancelBtnSvg.setAttribute("xmlns:i", "&ns_ai");
-    cancelBtnSvg.setAttribute("xmlns:graph", "&ns_graphs");
+    cancelBtnSvg.setAttribute("xmlns:i", "&ns_ai;");
+    cancelBtnSvg.setAttribute("xmlns:graph", "&ns_graphs;");
     cancelBtnSvg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
     cancelBtnSvg.setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink");
     cancelBtnSvg.setAttribute("x", "0px");
@@ -206,27 +206,30 @@ function makeForm() {
     "4.2,0l0,0c1.2-1.2,1.2-3.1,0-4.2L15,10.8l5.7-5.7C21.8,3.9,21.8,2.1,20." +
     "7,0.9z"
   );
-  titleWrap.className = "grow-wrap title-wrap";
-  titleInput.classList.add("title-input"); // TODO: debug title input display
+  titleWrap.classList.add("grow-wrap");
+    titleWrap.classList.add("title-wrap");
+  titleInput.classList.add("title-input");
     titleInput.name = "title";
     titleInput.placeholder = "Title";
     titleInput.rows = "1";
-    titleInput.onInput = "this.parentNode.dataset.replicatedValue = this.value";
+    titleInput.setAttribute("onInput", "this.parentNode.dataset.replicatedValue = this.value");
     titleInput.required = true;
-  authorWrap.className = "grow-wrap author-wrap";
+  authorWrap.classList.add("grow-wrap");
+    authorWrap.classList.add("author-wrap");
   authorInput.classList.add("author-input");
     authorInput.name = "author";
     authorInput.placeholder = "Author";
-    authorInput.onInput = "this.parentNode.dataset.replicatedValue = this.value";
+    authorInput.setAttribute("onInput", "this.parentNode.dataset.replicatedValue = this.value");
     authorInput.required = true;
   spacer.classList.add("spacer");
   cardBottom.classList.add("card-bottom");
-  pagesWrap.className = "grow-wrap pages-wrap";
+  pagesWrap.classList.add("grow-wrap");
+    pagesWrap.classList.add("pages-wrap");
   pagesInput.classList.add("pages-input");
     pagesInput.name = "pages";
     pagesInput.placeholder = "Number of pages";
     pagesInput.rows = "1";
-    pagesInput.onInput = "this.parentNode.dataset.replicatedValue = this.value";
+    pagesInput.setAttribute("onInput", "this.parentNode.dataset.replicatedValue = this.value");
     pagesInput.required = true;
   readToggle.classList.add("read-toggle");
     readToggle.setAttribute("for", "read-checkbox");
@@ -276,32 +279,6 @@ function makeForm() {
 }
 
 function populateGrid() {
-  // const deleteCard = e => {
-  //   const parentCard = e.target.closest(".card");
-  //   const cardTitle = parentCard.querySelector("h2").innerText;
-  //   const clickedDelBtn = e.target.closest("button");
-  //   const toggleDelete = () => {
-  //     clickedDelBtn.classList.toggle("toggled");
-  //   }
-  //   const lowerCard = () => {
-  //     parentCard.classList.toggle("toggled");
-  //   }
-  //   const hideCard = () => {
-  //     parentCard.style.opacity = "0";
-  //   }
-  //   const removeCard = () => {
-  //     parentCard.remove();
-  //   }
-  //   const removeData = () => {
-  //     myLibrary
-  //   }
-  //   clickedDelBtn.removeEventListener("click", deleteCard);
-  //   toggleDelete();
-  //   setTimeout(toggleDelete, 400);
-  //   setTimeout(lowerCard, 400)
-  //   setTimeout(hideCard, 800)
-  //   setTimeout(removeCard, 1400);
-  // }
   myLibrary.forEach(book => {
     const card = document.createElement("div");
     const cardInset = document.createElement("div");
@@ -417,7 +394,6 @@ function populateGrid() {
 }
 
 populateGrid();
-// });
 
 // For testing! Note "firstElementChild" rather than "firstChild"!!!!!
 // const toggleSwitches = [
