@@ -1,6 +1,10 @@
 let myLibrary = [];
 const grid = document.getElementById("grid");
 const addButton = document.getElementById("add-btn");
+const sortSliders = {
+  titleAuthor: document.getElementById("title-author").firstElementChild,
+  ascDesc: document.getElementById("asc-desc").firstElementChild
+};
 animateCSSGrid.wrapGrid(grid, {duration : 300, stagger: 100});
 
 function Book(title, author, pages, isRead) {
@@ -57,6 +61,10 @@ let book7 = new Book(
 myLibrary = [
   book1, book2, book3, book4, book5, book6, book7
 ];
+
+function sort() {
+  i
+}
 
 function swapGridContents() {
   const sortControl = document.getElementById("sort-control");
@@ -394,40 +402,3 @@ function populateGrid() {
 }
 
 populateGrid();
-
-// For testing! Note "firstElementChild" rather than "firstChild"!!!!!
-// const toggleSwitches = [
-//   document.getElementById("title-author"),
-//   document.getElementById("asc-desc")
-// ];
-
-// toggleSwitches.forEach(item => {
-//   item.addEventListener("click", () => {
-//     item.firstElementChild.classList.toggle("toggled");
-//   });
-// });
-
-// const addButton = document.getElementById("add-btn");
-
-// addButton.addEventListener("click", () => {
-//   addButton.classList.toggle("toggled");
-// });
-
-// const readToggle = document.getElementsByClassName("read-toggle")[0];
-
-// readToggle.addEventListener("click", () => {
-//   readToggle.classList.toggle("toggled");
-//   readToggle.firstElementChild.classList.toggle("toggled");
-// });
-
-// const deleteButton = document.getElementsByClassName("delete-btn")[0];
-
-// function toggleDelete() {
-//   deleteButton.classList.toggle("toggled");
-// }
-
-// deleteButton.addEventListener("click", () => {
-//   toggleDelete();
-//   setTimeout(toggleDelete, 500);
-//   document.getElementsByClassName("card")[0].classList.toggle("toggled");
-// });
