@@ -1,10 +1,25 @@
 let myLibrary = [];
 const grid = document.getElementById("grid");
 const addButton = document.getElementById("add-btn");
-const sortSliders = {
-  titleAuthor: document.getElementById("title-author").firstElementChild,
-  ascDesc: document.getElementById("asc-desc").firstElementChild
-};
+function getOption() {
+  const titleAuthor = document.getElementById("title-author");
+  const ascDesc = document.getElementById("asc-desc");
+  let option = [];
+
+  if (titleAuthor.firstElementChild.classList.contains("toggled")) {
+    option.push("author")
+  } else { 
+    option.push("title");
+  }
+  if (ascDesc.firstElementChild.classList.contains("toggled")) {
+    option.push("desc");
+  } else {
+    option.push("asc");
+  }
+
+  return option;
+}
+
 animateCSSGrid.wrapGrid(grid, {duration : 300, stagger: 100});
 
 function Book(title, author, pages, isRead) {
@@ -57,13 +72,46 @@ let book7 = new Book(
   607,
   false
 );
+let book8 = new Book(
+  "Where the Crawdads Sing",
+  "Delia Owens",
+  368,
+  false
+)
+let book9 = new Book(
+  "Mr. Mercedes",
+  "Stephen King",
+  436,
+  true
+)
+let book10 = new Book(
+  "Blink",
+  "Malcolm Gladwell",
+  320,
+  true
+)
 
 myLibrary = [
-  book1, book2, book3, book4, book5, book6, book7
+  book1, book2, book3, book4, book5, book6, book7, book8, book9, book10
 ];
 
-function sort() {
-  i
+function sortBooks() {
+  myLibrary.sort((a, b) => {
+    let aLastName = a.author.split(' ')[a.author.split(' ').length-1];
+    let bLastName = b.author.split(' ')[b.author.split(' ').length-1];
+
+    if (getOption()[0] === "title") {
+      return a.title < b.title ? -1 : 1;
+    } else {
+      return aLastName < bLastName ? -1 : 1;
+    }
+  });
+
+  if (getOption()[1] === "desc") {
+    myLibrary.reverse();
+  }
+
+  return myLibrary;
 }
 
 function swapGridContents() {
