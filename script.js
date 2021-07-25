@@ -118,9 +118,9 @@ function sortBooks() {
     let bLastName = b.author.split(' ')[b.author.split(' ').length-1];
 
     if (getOption()[0] === "title") {
-      return a.title < b.title ? -1 : 1;
+      return a.title.localeCompare(b.title) || aLastName.localeCompare(bLastName);
     } else {
-      return aLastName < bLastName ? -1 : 1;
+      return aLastName.localeCompare(bLastName) || a.title.localeCompare(b.title);
     }
   });
 
@@ -271,11 +271,10 @@ function makeForm() {
     cancelBtnSvg.setAttribute("xml:space", "preserve");
   cancelBtnPath.setAttribute(
     "d",
-    "M20.7,0.9L20.7,0.9c-1.2-1.2-3.1-1.2-4.2,0l-5.7,5.7L5.1,0.9c-1.2-1.2-3" +
-    ".1-1.2-4.2,0l0,0c-1.2,1.2-1.2,3.1,0,4.2l5.7,5.7l-5.7,5.7c-1.2,1.2-1.2" +
-    ",3.1,0,4.2l0,0c1.2,1.2,3.1,1.2,4.2,0l5.7-5.7l5.7,5.7c1.2,1.2,3.1,1.2," +
-    "4.2,0l0,0c1.2-1.2,1.2-3.1,0-4.2L15,10.8l5.7-5.7C21.8,3.9,21.8,2.1,20." +
-    "7,0.9z"
+    "M20.7,0.9L20.7,0.9c-1.2-1.2-3.1-1.2-4.2,0l-5.7,5.7L5.1,0.9c-1.2-1.2-3." +
+      "1-1.2-4.2,0l0,0c-1.2,1.2-1.2,3.1,0,4.2l5.7,5.7l-5.7,5.7c-1.2,1.2-1.2,3" +
+      ".1,0,4.2l0,0c1.2,1.2,3.1,1.2,4.2,0l5.7-5.7l5.7,5.7c1.2,1.2,3.1,1.2,4.2" +
+      ",0l0,0c1.2-1.2,1.2-3.1,0-4.2L15,10.8l5.7-5.7C21.8,3.9,21.8,2.1,20.7,0.9z"
   );
   titleWrap.classList.add("grow-wrap");
     titleWrap.classList.add("title-wrap");
