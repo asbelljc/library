@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/asbelljc/library/issues"
   },
-  "homepage": "https://github.com/asbelljc/library#readme",
+  "homepage": "https://asbelljc.github.io/library",
   "engines": {
     "node": "15.11.0"
   },
