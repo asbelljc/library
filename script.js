@@ -1,9 +1,19 @@
 let myLibrary = [];
 const grid = document.getElementById("grid");
 const addButton = document.getElementById("add-btn");
+const titleAuthor = document.getElementById("title-author");
+const ascDesc = document.getElementById("asc-desc");
+
+[titleAuthor, ascDesc].forEach(element => {
+  element.addEventListener("click", () => {
+    element.firstElementChild.classList.toggle("toggled");
+    clearGrid();
+    sortBooks();
+    setTimeout(populateGrid, 1000);
+  });
+});
+
 function getOption() {
-  const titleAuthor = document.getElementById("title-author");
-  const ascDesc = document.getElementById("asc-desc");
   let option = [];
 
   if (titleAuthor.firstElementChild.classList.contains("toggled")) {
@@ -16,7 +26,6 @@ function getOption() {
   } else {
     option.push("asc");
   }
-
   return option;
 }
 
@@ -27,6 +36,14 @@ function Book(title, author, pages, isRead) {
   this.author = author;
   this.pages = pages;
   this.isRead = isRead;
+}
+
+Book.prototype.toggleRead = function() {
+  if (this.isRead) {
+    this.isRead = false;
+  } else {
+    this.isRead = true;
+  }
 }
 
 // Manually adding cards for now, for UI development.
@@ -110,8 +127,6 @@ function sortBooks() {
   if (getOption()[1] === "desc") {
     myLibrary.reverse();
   }
-
-  return myLibrary;
 }
 
 function swapGridContents() {
@@ -335,6 +350,8 @@ function makeForm() {
 }
 
 function populateGrid() {
+  sortBooks();
+
   myLibrary.forEach(book => {
     const card = document.createElement("div");
     const cardInset = document.createElement("div");
@@ -413,6 +430,7 @@ function populateGrid() {
       readToggle.addEventListener("click", () => {
         readToggle.classList.toggle("toggled");
         slider.classList.toggle("toggled");
+        book.toggleRead();
       });
     slider.classList.add("slider");
     read.classList.add("read");
