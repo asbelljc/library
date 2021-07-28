@@ -3,6 +3,64 @@ const grid = document.getElementById("grid");
 const addButton = document.getElementById("add-btn");
 const titleAuthor = document.getElementById("title-author");
 const ascDesc = document.getElementById("asc-desc");
+// MDN's suggested check for localStorage availability.
+function storageAvailable(type) {
+  var storage;
+  try {
+    storage = window[type];
+    var x = '__storage_test__';
+    storage.setItem(x, x);
+    storage.removeItem(x);
+    return true;
+  }
+  catch(e) {
+    return e instanceof DOMException && (
+      // everything except Firefox
+      e.code === 22 ||
+      // Firefox
+      e.code === 1014 ||
+      // test name field too, because code might not be present
+      // everything except Firefox
+      e.name === 'QuotaExceededError' ||
+      // Firefox
+      e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+      // acknowledge QuotaExceededError only if there's something already stored
+      (storage && storage.length !== 0);
+  }
+}
+// Alert user of problems and use sample books if localStorage empty or restricted.
+if(!storageAvailable('localStorage')) {
+  alert(
+    "Your local storage is either disabled or full. Your changes will not be saved."
+  );
+}
+if (!storageAvailable('localStorage') || !localStorage.getItem('myLibrary')) {
+  let book1 = new Book(
+    "The Hobbit",
+    "J. R. R. Tolkien",
+    310,
+    false
+  );
+  let book2 = new Book(
+    "Green Eggs and Ham",
+    "Dr. Seuss",
+    62,
+    true
+  );
+  let book3 = new Book(
+    "Alice's Adventures in Wonderland",
+    "Lewis Carroll",
+    192,
+    true
+  );
+
+  myLibrary = [
+    book1, book2, book3
+  ];
+} else {
+  myLibrary = JSON.parse(localStorage.getItem("myLibrary"))
+                  .map(book => Object.assign(new Book(), book));
+}
 
 [titleAuthor, ascDesc].forEach(element => {
   element.addEventListener("click", () => {
@@ -44,73 +102,8 @@ Book.prototype.toggleRead = function() {
   } else {
     this.isRead = true;
   }
+  localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
 }
-
-// Manually adding cards for now, for UI development.
-let book1 = new Book(
-  "Harry Potter and the Sorcerer's Stone",
-  "J. K. Rowling",
-  223,
-  true
-);
-let book2 = new Book(
-  "Harry Potter and the Chamber of Secrets",
-  "J. K. Rowling",
-  251,
-  true
-);
-let book3 = new Book(
-  "Harry Potter and the Prisoner of Azkaban",
-  "J. K. Rowling",
-  317,
-  true
-);
-let book4 = new Book(
-  "Harry Potter and the Goblet of Fire",
-  "J. K. Rowling",
-  636,
-  true
-);
-let book5 = new Book(
-  "Harry Potter and the Order of the Phoenix",
-  "J. K. Rowling",
-  766,
-  false
-);
-let book6 = new Book(
-  "Harry Potter and the Half-Blood Prince",
-  "J. K. Rowling",
-  607,
-  false
-)
-let book7 = new Book(
-  "Harry Potter and the Deathly Hallows",
-  "J. K. Rowling",
-  607,
-  false
-);
-let book8 = new Book(
-  "Where the Crawdads Sing",
-  "Delia Owens",
-  368,
-  false
-)
-let book9 = new Book(
-  "Mr. Mercedes",
-  "Stephen King",
-  436,
-  true
-)
-let book10 = new Book(
-  "Blink",
-  "Malcolm Gladwell",
-  320,
-  true
-)
-
-myLibrary = [
-  book1, book2, book3, book4, book5, book6, book7, book8, book9, book10
-];
 
 function sortBooks() {
   myLibrary.sort((a, b) => {
@@ -210,6 +203,7 @@ function makeForm() {
       readCheckbox.checked
     )
     myLibrary.push(book);
+    localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
 
     submitButton.classList.toggle("toggled");
     setTimeout( () => {
@@ -380,6 +374,7 @@ function populateGrid() {
       }
       const eraseData = () => {
         myLibrary.splice(myLibrary.indexOf(book), 1);
+        localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
       }
       deleteButton.removeEventListener("click", deleteCard);
       toggleDelete();
