@@ -36,21 +36,21 @@ if(!storageAvailable('localStorage')) {
 }
 if (!storageAvailable('localStorage') || !localStorage.getItem('myLibrary')) {
   let book1 = new Book(
-    "The Hobbit",
-    "J. R. R. Tolkien",
+    "Stranger in a Strange Land",
+    "Robert A. Heinlein",
     310,
     false
   );
   let book2 = new Book(
-    "Green Eggs and Ham",
+    "Oh, the Places You'll Go!",
     "Dr. Seuss",
-    62,
+    64,
     true
   );
   let book3 = new Book(
-    "Alice's Adventures in Wonderland",
-    "Lewis Carroll",
-    192,
+    "A Brief History of Time",
+    "Stephen Hawking",
+    256,
     true
   );
 
