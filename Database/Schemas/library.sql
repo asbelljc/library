@@ -1,3 +1,3 @@
--- DROP SCHEMA "library";
+-- DROP SCHEMA bookshelf;
 
-CREATE SCHEMA "library" AUTHORIZATION cxrulqzqbtxagf;
+CREATE SCHEMA bookshelf AUTHORIZATION cxrulqzqbtxagf;
