@@ -3,6 +3,25 @@ const grid = document.getElementById("grid");
 const addButton = document.getElementById("add-btn");
 const titleAuthor = document.getElementById("title-author");
 const ascDesc = document.getElementById("asc-desc");
+
+class Book {
+  constructor(title, author, pages, isRead) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.isRead = isRead;
+  }
+
+  toggleRead = function() {
+    if (this.isRead) {
+      this.isRead = false;
+    } else {
+      this.isRead = true;
+    }
+    localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+  }
+}
+
 // MDN's suggested check for localStorage availability.
 function storageAvailable(type) {
   var storage;
@@ -28,6 +47,7 @@ function storageAvailable(type) {
       (storage && storage.length !== 0);
   }
 }
+
 // Alert user of problems and use sample books if localStorage empty or restricted.
 if(!storageAvailable('localStorage')) {
   alert(
@@ -88,22 +108,6 @@ function getOption() {
 }
 
 animateCSSGrid.wrapGrid(grid, {duration : 300, stagger: 100});
-
-function Book(title, author, pages, isRead) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.isRead = isRead;
-}
-
-Book.prototype.toggleRead = function() {
-  if (this.isRead) {
-    this.isRead = false;
-  } else {
-    this.isRead = true;
-  }
-  localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
-}
 
 function sortBooks() {
   myLibrary.sort((a, b) => {
