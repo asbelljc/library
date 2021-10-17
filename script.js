@@ -93,7 +93,10 @@ Book.prototype.toggleRead = function () {
   } else {
     this.isRead = true;
   }
-  localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+
+  if (storageAvailable('localStorage')) {
+    localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+  }
 };
 
 function sortBooks() {
@@ -216,7 +219,10 @@ function makeForm() {
       readCheckbox.checked
     );
     myLibrary.push(book);
-    localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+
+    if (storageAvailable('localStorage')) {
+      localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+    }
 
     submitButton.classList.toggle('toggled');
     setTimeout(() => {
@@ -404,7 +410,9 @@ function populateGrid() {
       };
       const eraseData = () => {
         myLibrary.splice(myLibrary.indexOf(book), 1);
-        localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+        if (storageAvailable('localStorage')) {
+          localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+        }
       };
       deleteButton.removeEventListener('click', deleteCard);
       toggleDelete();
